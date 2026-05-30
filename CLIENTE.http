@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:3333
+
+GET {{baseUrl}}/HTTP/1.1
+
+#######registro 
+ 
+POST {{baseUrl}}/registre HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "123456"
+}
+
+###login
+
+@name login 
+POST {{baseUrl}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "john.doe@example.com",
+    "password": "123456"
+}
+
+#####Rota segura 
+
+@authToken = {{login.response.body.token}}
+GET {{baseUrl}}/ HTTP/1.1
+Authorization:{{authToken}}
