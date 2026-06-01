@@ -8,14 +8,13 @@ POST {{baseUrl}}/registre HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "john.doe@example.com",
+    "name": "admin",
+    "email": "admin@example.com",
     "password": "123456"
 }
 
 ###login
-
-@name login 
+@name login
 POST {{baseUrl}}/login HTTP/1.1
 Content-Type: application/json
 
